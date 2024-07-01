@@ -1,4 +1,4 @@
-package baseball;
+package baseball.domain;
 
 public class PlayResult {
     private int ball = 0;
@@ -13,10 +13,10 @@ public class PlayResult {
     }
 
     public void report(BallStatus status) {
-        if(status.isBall()) {
+        if (status.isBall()) {
             this.ball++;
         }
-        if(status.isStrike()) {
+        if (status.isStrike()) {
             this.strike++;
         }
     }

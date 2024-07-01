@@ -1,11 +1,17 @@
 package baseball;
 
+import baseball.domain.Ball;
+import baseball.domain.BallStatus;
+import baseball.domain.Balls;
+import baseball.domain.PlayResult;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class BallsTest {
     private Balls answers;
@@ -13,6 +19,19 @@ public class BallsTest {
     @BeforeEach
     void setUp() {
         answers = new Balls(Arrays.asList(1, 2, 3));
+    }
+
+    @Test
+    @DisplayName("야구_개수_3_검증")
+    void 야구_개수_3_검증(){
+        assertThatThrownBy(() -> answers.play(Arrays.asList(1, 2, 3, 4))).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> answers.play(Arrays.asList(1, 2))).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("야구_숫자_중복_검증")
+    void 야구_숫자_중복_검증(){
+        assertThatThrownBy(() -> answers.play(Arrays.asList(1, 2, 2))).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

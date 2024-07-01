@@ -1,4 +1,4 @@
-package baseball;
+package baseball.domain;
 
 import java.util.Objects;
 
@@ -12,7 +12,7 @@ public class Ball {
     }
 
     public BallStatus play(Ball ball) {
-        if (this.equals(ball)){
+        if (this.equals(ball)) {
             return BallStatus.STRIKE;
         }
 
